@@ -38,11 +38,11 @@
 
 一般我们通过 `config` 函数来访问配置文件的数据,通过 `env` 函数来访问环境变量数据。
 
-关于查找配置文件的细节可以关注 `symfony/finder` 这个扩展包，基础只是方面可以了解下 SPL 的 `DirectoryIterator` 类。
+关于查找配置文件的细节可以关注 `symfony/finder` 这个扩展包，基础知识方面可以了解下 SPL 的 `DirectoryIterator` 类。
 
 以上就是加载配置文件的过程，并没有看到相关生成配置缓存文件的逻辑，也就是在默认情况下是不会合并配置缓存文件的。
 
-讨论：其实默认去变量配置文件目录下的 ** 全部 ** 配置文件并不是必须的，可以改为用的时候去判断要获取的数据是否在 `Repository`  对象上面，如果不存在才去加载，然后再保存到 `Repository` 对象上。
+讨论：其实默认去遍历配置文件目录下的 ** 全部 ** 配置文件并不是必须的，可以改为用的时候去判断要获取的数据是否在 `Repository`  对象上面，如果不存在才去加载，然后再保存到 `Repository` 对象上。
 
 
 ## HandleExceptions 异常处理设置
@@ -68,9 +68,6 @@ Service Provider 按照 `$defer` 的不同可以分为及时加载和延迟加�
 
 ## BootProviders 
 
-目前功能是执行注册的 Service Provider 的 boot方法，可以在这个方法里面做一些关于 Service Provider 的初始化的操作。 
+这个引导器的主要功能是执行注册的 Service Provider 的 boot方法，可以在这个方法里面做一些关于 Service Provider 的初始化的操作。
 
-
-
-
-
+ 
